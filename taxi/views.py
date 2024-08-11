@@ -42,5 +42,5 @@ class DriverDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         driver = self.get_object()
-        context["car_list"] = driver.cars.prefetch_related("manufacturer")
+        context["car_list"] = driver.cars.prefetch_related("cars__manufacturer")
         return context
